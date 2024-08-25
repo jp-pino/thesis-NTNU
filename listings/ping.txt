@@ -1,0 +1,17 @@
+ping {
+  range: 30.758804321289062
+  gain: 100.0
+  frequency: 1196808.5106382978
+  speed_of_sound_used: 1517.4982581645493
+  frequency_mode: MULTIBEAM_FREQUENCY_MODE_LOW_FREQUENCY
+  number_of_ranges: 378
+  number_of_beams: 512
+  step: 512
+  bearings: -65.0
+  bearings: -64.5199966430664
+  ...
+  bearings: 64.5199966430664
+  bearings: 65.0
+  ping_data: [1D array containing sonar image]
+  device_id: GUEST_PORT_DEVICE_ID_BLUEPRINT_SUBSEA_OCULUS_M1200D
+}

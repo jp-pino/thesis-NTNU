@@ -1,9 +1,40 @@
 \chapter{Additional Material}
 \label{app:additional}
 
-Additional material that does not fit in the main thesis but may still be relevant to share, e.g., raw data from experiments and surveys, code listings, additional plots, pre-project reports, project agreements, contracts, logs etc., can be put in appendices. Simply issue the command \texttt{\textbackslash appendix} in the main \texttt{.tex} file, and make one chapter per appendix.
-
-If the appendix is in the form of a ready-made PDF file, it should be supported by a small descriptive text, and included using the \texttt{pdfpages} package. To illustrate how it works, a standard project agreement (for the IE faculty at NTNU in Gjøvik) is attached here. You would probably want the included PDF file to begin on an odd (right hand) page, which is achieved by using the \texttt{\textbackslash cleardoublepage} command immediately before the \texttt{\textbackslash includepdf[]\{\}} command. Use the option \texttt{[pages=-]} to include all pages of the PDF document, or, e.g., \texttt{[pages=2-4]} to include only the given page range.
-
+\section{Timing of modules}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Row Labels & Average of time & StdDev of time & Min of time & Max of time \\ \hline
+        \verb|pipeline.Pipeline| & 0.334373845 & 0.195231211 & 0.268059969 & 2.845854044 \\ \hline
+        \verb|pipeline.Pipeline_conditioning__1| & 0.106363857 & 0.180980164 & 0.084543943 & 2.523277044 \\ \hline
+        \verb|pipeline.Pipeline_conditioning__1_FanModule2__1| & 0.079292439 & 0.007017289 & 0.073828936 & 0.129281044 \\ \hline
+        \verb|pipeline.Pipeline_conditioning__1_PaddingModule__2| & 0.005277683 & 0.002123205 & 0.003836155 & 0.028264999 \\ \hline
+        \verb|pipeline.Pipeline_conditioning__1_ResizeModule__0| & 0.02037254 & 0.179488065 & 0.00521493 & 2.414816856 \\ \hline
+        \verb|pipeline.Pipeline_filtering__3| & 0.054460384 & 0.01186788 & 0.045929193 & 0.140566111 \\ \hline
+        \verb|pipeline.Pipeline_filtering__3_BandpassModule__0| & 0.045252405 & 0.009429116 & 0.040208101 & 0.124923944 \\ \hline
+        \verb|pipeline.Pipeline_filtering__3_MaskModule__1| & 0.006473091 & 0.004970803 & 0.004266977 & 0.047956944 \\ \hline
+        \verb|pipeline.Pipeline_global_alignment__5| & 0.005665584 & 0.011317324 & 0.002096176 & 0.137736797 \\ \hline
+        \verb|pipeline.Pipeline_global_alignment__5_UpdateTformModule__0| & 0.002116981 & 0.003729362 & 0.000874043 & 0.050754786 \\ \hline
+        \verb|pipeline.Pipeline_IdentityModule__0| & 0.000410721 & 0.000265738 & 0.000173807 & 0.002635002 \\ \hline
+        \verb|pipeline.Pipeline_IdentityModule__6| & 0.00103558 & 0.000510554 & 0.000609875 & 0.004172087 \\ \hline
+        \verb|pipeline.Pipeline_MetricsModule__2| & 0.014786993 & 0.00506369 & 0.011919022 & 0.07575798 \\ \hline
+        \verb|pipeline.Pipeline_OdometerModule__8| & 0.001772465 & 0.000973816 & 0.000936031 & 0.008838892 \\ \hline
+        \verb|pipeline.Pipeline_pipeline.Pipeline__9| & 0.021402621 & 0.007335451 & 0.013242006 & 0.071824074 \\ \hline
+        \verb|pipeline.Pipeline_registration__4| & 0.126420726 & 0.036122286 & 0.090725899 & 0.338999987 \\ \hline
+        \verb|pipeline.Pipeline_registration__4_FourierModule__1| & 0.01765546 & 0.006538383 & 0.013945103 & 0.093924761 \\ \hline
+        \verb|pipeline.Pipeline_registration__4_IdentityModule__0| & 0.001466208 & 0.000689269 & 0.000715017 & 0.004929066 \\ \hline
+        \verb|pipeline.Pipeline_registration__4_IdentityModule__4| & 0.001474382 & 0.000815922 & 0.000459194 & 0.006044149 \\ \hline
+        \verb|pipeline.Pipeline_registration__4_LogPolarModule__2| & 0.028288943 & 0.006598951 & 0.023254156 & 0.094389915 \\ \hline
+        \verb|pipeline.Pipeline_registration__4_PhaseCorrelationModule__3| & 0.034928919 & 0.017288774 & 0.022396326 & 0.200668812 \\ \hline
+        \verb|pipeline.Pipeline_registration__4_PhaseCorrelationModule__6| & 0.035303782 & 0.015808464 & 0.022093058 & 0.12102294 \\ \hline
+        \verb|pipeline.Pipeline_registration__4_WarpModule__5| & 0.004428173 & 0.000915987 & 0.003745079 & 0.00955224 \\ \hline
+        \verb|pipeline.Pipeline_WarpModule__0| & 0.020068741 & 0.007029614 & 0.012322903 & 0.069835663 \\ \hline
+        \verb|pipeline.Pipeline_WarpModule__7| & 0.020182917 & 0.004524675 & 0.013231993 & 0.062887192 \\ \hline
+        Grand Total & 0.044222309 & 0.096335889 & 0.000173807 & 2.845854044 \\ \hline
+    \end{tabular}
+    \caption{FMT Pipeline Timing Results}
+\end{table}
 \cleardoublepage
-\includepdf[pages=-]{appendices/NTNUProsjektavtale.pdf}
+% \includepdf[pages=-]{appendices/NTNUProsjektavtale.pdf}

@@ -1,10 +1,13 @@
 \documentclass[british,titlepage]{ntnuthesis}
 
-\title{An NTNU Thesis \LaTeX{} Document Class}
-\shorttitle{An NTNU Thesis Document Class}
-\author{Community of Practice in Computer Science Education at NTNU}
-\shortauthor{CoPCSE$@$NTNU}
-\date{CC-BY \ntnuthesisdate}
+\title{Mosaicing of multibeam sonar feed to automate the creation of underwater sonar maps}
+\shorttitle{Mosaicing FLS}
+\author{Juan Pablo Pino Bravo}
+\shortauthor{JPino$@$NTNU}
+\date{\ntnuthesisdate}
+
+\usepackage{float}
+\usepackage{hyperref}
 
 \addbibresource{thesis.bib}
 
@@ -24,9 +27,13 @@
 \printglossary                    % Print glossary
 
 \input{chapters/1-introduction}
-\input{chapters/2-usage.tex}
-\input{chapters/3-structure.tex}
-\input{chapters/4-conclusion.tex}
+\input{chapters/2-background}
+\input{chapters/3-implementation}
+\input{chapters/4-setup}
+\input{chapters/5-results}
+\input{chapters/6-discussion}
+\input{chapters/7-conclusion}
+
 
 \chapter*{\bibname}
 \printbibliography[heading=none]

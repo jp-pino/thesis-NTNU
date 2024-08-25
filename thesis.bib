@@ -18,3 +18,104 @@
   pages={1660},
   year={1951}
 }
+
+@article{FourierMosaic2015,
+   abstract = {Vehicle operations in underwater environments are often compromised by poor visibility conditions. For instance, the perception range of optical devices is heavily constrained in turbid waters, thus complicating navigation and mapping tasks in environments such as harbors, bays, or rivers. A new generation of high-definition forward-looking sonars providing acoustic imagery at high frame rates has recently emerged as a promising alternative for working under these challenging conditions. However, the characteristics of the sonar data introduce difficulties in image registration, a key step in mosaicing and motion estimation applications. In this work, we propose the use of a Fourier-based registration technique capable of handling the low resolution, noise, and artifacts associated with sonar image formation. When compared to a state-of-the art region-based technique, our approach shows superior performance in the alignment of both consecutive and nonconsecutive views as well as higher robustness in featureless environments. The method is used to compute pose constraints between sonar frames that, integrated inside a global alignment framework, enable the rendering of consistent acoustic mosaics with high detail and increased resolution. An extensive experimental section is reported showing results in relevant field applications, such as ship hull inspection and harbor mapping.},
+   author = {Natàlia Hurtós and David Ribas and Xavier Cufí and Yvan Petillot and Joaquim Salvi},
+   doi = {10.1002/rob.21516},
+   issn = {15564967},
+   issue = {1},
+   journal = {Journal of Field Robotics},
+   month = {1},
+   note = {Off line approach},
+   pages = {123-151},
+   title = {Fourier-based registration for robust forward-looking sonar mosaicing in low-visibility underwater environments},
+   volume = {32},
+   year = {2015},
+   annote = {Full-stack approach for ROVs equipped with Front Facing Sonar. It covers registration approaches, mosaicing and denoising.}
+}
+@article{PlanarHomography,
+   abstract = {Figure 1: Orthoimage sampled from keyframe views of a planar indoor scene and created in real-time on the mobile phone. ABSTRACT We present a real-time camera pose tracking and mapping system which uses the assumption of a planar scene to implement a highly efficient mapping algorithm. Our lightweight mapping approach is based on keyframes and plane-induced homographies between them. We solve the planar reconstruction problem of estimating the keyframe poses with an efficient image rectification algorithm. Camera pose tracking uses continuously extended and refined pla-nar point maps and delivers robustly estimated 6DOF poses. We compare system and method with bundle adjustment and monoc-ular SLAM on synthetic and indoor image sequences. We demonstrate large savings in computational effort compared to the monoc-ular SLAM system while the reduction in accuracy remains acceptable .},
+   author = {Christian Pirchheim and Gerhard Reitmayr},
+   isbn = {9781457721854},
+   keywords = {and vir-tual realities; I41 [Image Processing and Computer Vision]: Scene Analysis-Tracking,augmented,mapping,mobile phone Index Terms: H51 [Information Interfaces and Presentation]: Multimedia Information Systems-Artificial,monocular SLAM,plane estima-tion,tracking},
+   note = {Real-time approach},
+   title = {Homography-Based Planar Mapping and Tracking for Mobile Phones},
+   annote = {Mosaicing approach assuming planar scenes and estimating the homographies between them. Not ROV and sonar focused, but could be useful.}
+}
+@article{Registration,
+   abstract = {Automated processing of sonar video imagery enables valuable capabilities for a wide variety of underwater applications in turbid environments. Some key examples comprise the detection, localization and tracking of distinct scene targets, building feature maps, as well as improving positioning accuracy of unmanned submarines by means of image registration and 3D motion estimation to augment traditional positioning devices. This work offers a novel technique for the registration of 2D forward-look sonar images, by optimization over the sonar 3D motion parameters. It incorporates landmark detection through an adaptive clustering scheme with Gaussian map to represent key features at each frame. Improved performance is demonstrated in experiments with real data, both in terms of computation time and accuracy, relative to the state of the art, where the registration utilizes a simplified 2D image transformation model. Among many potentials, the method can improve precision in AUV navigation and environmental modeling.},
+   author = {M D Aykin and S Negahdaripour},
+   isbn = {9781467308311},
+   title = {On Feature Extraction and Region Matching for Forward Scan Sonar Imaging},
+}
+
+%%Noise
+@article{Wu2018,
+   abstract = {In order to remove the complex and severe noise from sonar image more effectively, an image denoising approach based on sparse representation is carried out in this paper. To decompose and then reconstruct the sonar image on DCT dictionary with OMP is effective for additive noise removing. Then a logarithmic transformation was applied on the previous reconstructed image to make it adapt to sparse representation denoising model. Experiments are provided to demonstrate the performance of the proposed approach. Results show that this method is efficient in removing additive and multiplicative noise from the sonar image and is also particularly appealing in terms of both denoising effect and keeping details.},
+   author = {Di Wu and Xue Du and Kaiyu Wang},
+   doi = {10.1109/ICIVC.2018.8492877},
+   isbn = {978-1-5386-4991-6},
+   journal = {2018 3rd IEEE International Conference on Image, Vision and Computing},
+   title = {An Effective Approach for Underwater Sonar Image Denoising Based on Sparse Representation},
+   url = {https://ieeexplore.ieee.org/document/8492877},
+   year = {2018},
+}
+@article{Isar2005,
+   abstract = {The sonar images are perturbed by a multiplicative noise called speckle, due to the coherent nature of the scattering phenomenon. The use of speckle reduction filters is necessary to optimize the images exploitation procedures. This paper presents a new speckle reduction method in the wavelets domain using a novel Bayesian-based algorithm, which tends to reduce the speckle, preserving the structural features (like the discontinuities) and textural information of the scene. A blind speckle-suppression method that performs a nonlinear operation on the data, based on a new bishrink filter variant is obtained. Finally, some simulation examples prove the performances of the proposed denoising method. These performances are compared with the results obtained applying state-of-the-art speckle reduction techniques.},
+   author = {A. Isar and D. Isar and S. Moga and J. Augustin and X. Lurton},
+   doi = {10.1109/OCEANSE.2005.1513246},
+   isbn = {0780391039},
+   journal = {Oceans 2005 - Europe : Brest, France, June 20-23, 2005},
+   publisher = {IEEE},
+   title = {Multi-scale MAP Despeckling of SONAR Images},
+   url = {https://ieeexplore.ieee.org/abstract/document/1513246},
+   year = {2005},
+}
+@misc{Reddy1996,
+   abstract = {This correspondence discusses an extension of the well-known phase correlation technique to cover translation, rotation, and scaling. Fourier scaling properties and Fourier rotational properties are used to find scale and rotational movement. The phase correlation technique determines the translational movement. This method shows excellent robustness against random noise.},
+   author = {B Srinivasa Reddy and B N Chatterji},
+   isbn = {10577149/96$05.0},
+   issue = {8},
+   journal = {IEEE TRANSACTIONS ON IMAGE PROCESSING},
+   title = {An FFT-Based Technique for Translation, Rotation, and Scale-Invariant Image Registration},
+   volume = {5},
+   year = {1996},
+}
+@article{Hurtos2015,
+   abstract = {Vehicle operations in underwater environments are often compromised by poor visibility conditions. For instance, the perception range of optical devices is heavily constrained in turbid waters, thus complicating navigation and mapping tasks in environments such as harbors, bays, or rivers. A new generation of high-definition forward-looking sonars providing acoustic imagery at high frame rates has recently emerged as a promising alternative for working under these challenging conditions. However, the characteristics of the sonar data introduce difficulties in image registration, a key step in mosaicing and motion estimation applications. In this work, we propose the use of a Fourier-based registration technique capable of handling the low resolution, noise, and artifacts associated with sonar image formation. When compared to a state-of-the art region-based technique, our approach shows superior performance in the alignment of both consecutive and nonconsecutive views as well as higher robustness in featureless environments. The method is used to compute pose constraints between sonar frames that, integrated inside a global alignment framework, enable the rendering of consistent acoustic mosaics with high detail and increased resolution. An extensive experimental section is reported showing results in relevant field applications, such as ship hull inspection and harbor mapping.},
+   author = {Natàlia Hurtós and David Ribas and Xavier Cufí and Yvan Petillot and Joaquim Salvi},
+   doi = {10.1002/rob.21516},
+   issn = {15564967},
+   issue = {1},
+   journal = {Journal of Field Robotics},
+   month = {1},
+   pages = {123-151},
+   publisher = {John Wiley and Sons Inc.},
+   title = {Fourier-based registration for robust forward-looking sonar mosaicing in low-visibility underwater environments},
+   volume = {32},
+   year = {2015},
+}
+
+
+
+
+
+
+
+
+
+# Images
+@misc{Blueye:X3,
+    author = {{Blueye Robotics}},
+    title = {Blueye-x3\_oculus-DSCF1711-Edit\_transparet-crop2\_faded-tether.png 600×768 pixels},
+    note = {[Online; accessed Aug, 2024]},
+    url = {https://images.ctfassets.net/qpo1z0ycuc50/5XOapQzClmwkCoJkIKYLVT/6f875fe150406f29037628a83b83c66c/Blueye-x3_oculus-DSCF1711-Edit_transparet-crop2_faded-tether.png?w=600&q=75&fm=webp}
+}
+
+@misc{Blueye:ProtocolDefinitions,
+    author = {{Blueye Robotics}},
+    title = {ProtocolDefinitions},
+    note = {[Online; accessed Aug, 2024]},
+    url = {https://github.com/BluEye-Robotics/ProtocolDefinitions}
+}

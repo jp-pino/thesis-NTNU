@@ -1,0 +1,14 @@
+\chapter{Discussion}
+\label{chap:discussion}
+
+% Will talk about the trade-off between speed and distant registrations and how a more complete pipeline might use both together. Use distant registrations 
+
+
+
+One of the main pitfalls of the Fourier-Mellin Pipeline when applied over sonar frames is the sheer number of transformations that are applied over it, and that it relies on working on images that have already undergone a Fan Transformation. This transformation is very lossy, since every beam is compressed into a single origin point. A lot of usable data is lost in this overlap. On top of this, the rotation is estimated through too many steps: Fan Transformation $\rightarrow$ Fourier $\rightarrow$ Log-Polar Transform $\rightarrow$ Phase Correlation. It is evident that \citeauthor{Hurtos2015}'s approach is not only faster by performing Phase Correlation directly on the source image, but also more accurate for small rotations/translations.
+
+
+On the other hand, one of the main pitfalls of the \citeauthor{Hurtos2015}'s pipeline is that it can't deal with distant rotations and translations as effectively as \citeauthor{Reddy1996}'s. This is a side-effect of running phase correlation over the raw frame. While \citeauthor{Reddy1996}'s decouples rotations from translations by using the Fourier transform of the images, \citeauthor{Hurtos2015}'s applies phase correlation over the raw images. This is a smart optimization assuming very little translation between frames, but this approach will definitely struggle over not-so-closely aligned frames.
+
+Combining the strengths of both algorithms should be further explored, but given these results it could be useful for global alignment and/or registration against the whole map. A new combined pipeline might use \citeauthor{Hurtos2015}'s approach for incoming frames sequentially, but use the proposed adaptations to \citeauthor{Reddy1996}'s for global registration against frames suspected to be in the vicinity.
+

@@ -1,0 +1,20 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+\section{Conclusion}
+
+\section{Limitations}
+
+\begin{itemize}
+    \item No changes in depth.
+    \item Scale not taken into account in either pipeline. Might be a measure of depth.
+\end{itemize}
+
+
+\section{Future work}
+
+Using the Hurtos pipeline is good, however angle estimation is most likely wrong on real images because of the bearing table. This could be fixed by re-scaling the bearings axis so that all angles are evenly spaced. Additionally, it might be helpful to re-scale the range axis in the raw frames into log base so that scale might also be calculated through phase correlation. 
+
+Ray supports pipelining operations to increase throughput. Currently each module has to finish before processing of the second module begins. In most cases, except in the Phase Correlation and the Mosaicing modules, the pipelines tends to be independent for each image. Using Ray for pipelining across modules might save some useful cycles.
+
+GPU acceleration of the pipelines.
