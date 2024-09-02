@@ -65,7 +65,7 @@ The Fourier-Mellin Pipeline in all 3 cases struggled to estimate angles correctl
         |Interval - Avg.| & 0.07º & 0.16º & 0.42º \\ \hline
         |Interval - Avg.|/Avg. & 8\% & 3\% & 4\% \\ \hline
     \end{tabular}
-    \caption{FMT Pipeline Results}
+    \caption{Fourier-Mellin Pipeline Results}
 \end{table}
 
 The table suggests that the pipeline performs similarly for distant rotation estimations. It constantly scores a low StdDev which suggests good precision and consistent registrations. The distance from the estimated interval to the actual value increases with the interval, however, this value remains at sub-degree precision which suggests robustness against the size of the interval. The last metric |Interval - Avg|/Avg suggests that the most precise registration was achieved for the 5º intervals.
@@ -478,7 +478,7 @@ The values appear to be very close to estimates obtained from \href{https://eart
 
 Both pipelines got close to the actual rotation of 180º but were overshot by 16º and 11º respectively. This explains the visual distortion on the outputs, making angles that should be square a little off.   
 
-Although the results are hard to compare, through visual inspection, it seems as though the Raw Polar Pipeline is performing better. We repeat the test on different input, where given a different range setting the pipelines determined that the range resolution for this image will be 0.26 m/pixel.
+Although the results are hard to compare, through visual inspection, it seems as though the Raw Polar Pipeline is performing better. We repeat the test on different input, where given a different range setting, the pipelines determined that the range resolution for this image will be 0.26 m/pixel.
 
 \begin{figure}[H]
     \centering
@@ -517,8 +517,8 @@ Another interesting result on real data is how mosaicing reduces noise:
         \includegraphics[width=\textwidth]{figures/results/Real/ExampleMosaic/combined.png}
         \caption{Raw Polar Pipeline Mosaic.}
     \end{subfigure}
-    \label{fig:sonar-mosaic}
     \caption{Difference in noise between a single frame and mosaic.}
+    \label{fig:sonar-mosaic}
 \end{figure}
 
 The overall effect is that the image is less grainy, some of the voids are filled in by data from other frames and it's easier to identify features like the two pillars close to the wall. 

@@ -6,6 +6,8 @@ In conclusion, the analysis performed in this thesis outlines the strengths and 
 
 The key takeaway from this is that the Raw Polar Pipeline is better suited for registering consecutive frames as it follows the movement of the drone, whereas the Fourier-Mellin approach is more robust against more distant translations and rotations. This might enable better global alignment in a combined pipeline: the Raw Polar Pipeline would take care of the main consecutive registration chain, and Fourier-Mellin would be used on neighboring frames that may be both spatially and chronologically distant. 
 
+As mentioned before, another possible application that arises from the excellent performance on rotations from the Raw Polar Pipeline is pure rotational maps. In this case the \acrshort{rov} would only be allowed to rotate to generate a map of what is around it.
+
 It was shown in the results how resizing the input frames can drastically speed up the pipelines. However, this must be done carefully evaluating the trade-off in output resolution. If more detail is required, the frames can't be down-sampled as much. Using data from the \autoref{fig:resizing-speedup} a pipeline might be favored over the other considering timing constraints.
 
 Mosaicing was successful using the chosen approach, reducing visible noise and outputting images that are clearer and less grainy than the input frames. 

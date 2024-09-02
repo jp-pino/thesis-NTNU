@@ -35,7 +35,7 @@ The number of beams produced by the sonar and their orientation will determine t
 \end{figure}
 
 
-As explained by \cite{Hurtos2015}, in \acrfull{fls} imaging, a particular beam generated from the transducer might spread along its "Vertical Aperture". All the pings along the aperture arc get compacted down into the image plane. In a similar fashion to what happens in a regular optical camera, a 2D \acrfull{fls} loses 3D information of the captured scene. Any set of points above or below the image plane along the same arc will correspond to the same output in the sonar image. The figure \ref{fig:flsaperture} shows a single beam coming from the sonar and how it is mapped into a single vertical line in the output image. Any echoes received back from insonifying this cone will be mapped onto the red "imaging plane", generating the loss of 3D data. 
+As explained by \citeauthor{Hurtos2015}\cite{Hurtos2015}, in \acrfull{fls} imaging, a particular beam generated from the transducer might spread along its "Vertical Aperture". All the pings along the aperture arc get compacted down into the image plane. In a similar fashion to what happens in a regular optical camera, a 2D \acrfull{fls} loses 3D information of the captured scene. Any set of points above or below the image plane along the same arc will correspond to the same output in the sonar image. The figure \ref{fig:flsaperture} shows a single beam coming from the sonar and how it is mapped into a single vertical line in the output image. Any echoes received back from insonifying this cone will be mapped onto the red "imaging plane", generating the loss of 3D data. 
 
 Although the 3D point \(P\) actually matches the point \(p\) on the imaging plane, as long as the range is much greater than the relief observed in the elevation direction we can approximate the 3D point \(P\) to \(\hat{p}\). This is often the case as on \acrshort{fls} the vertical aperture tends to be small, and ranges can extend very far.
 
@@ -129,7 +129,7 @@ Robustness to noise in particular is of interest when developing registration pi
 The phase correlation method allows us to estimate translations between images using the Fourier transform. By converting the images into the frequency domain, the method identifies shifts as phase differences between their corresponding Fourier transforms. The resulting phase correlation peak indicates the relative translation between the images, providing a robust and efficient way to align them even in the presence of noise or varying image intensities. It uses a property called Fourier shift which relates translations in the spatial domain to phase shifts in the Fourier domain. 
 
 
-Better explained by \citeauthor{Reddy1996}\cite{Reddy1996}, the process of identifying the translation between two images is as follows. Given two images \(f_1\) and \(f_2\) related by a translation in the x and y axis, \(t_x\) and \(t_y\) respectively:
+Better explained by \citeauthor{Reddy1996}\cite{Reddy1996} and \citeauthor{5396234}\cite{5396234}, the process of identifying the translation between two images is as follows. Given two images \(f_1\) and \(f_2\) related by a translation in the x and y axis, \(t_x\) and \(t_y\) respectively:
 
 \[f_2(x,y)=f_1(x-t_x,y-t_y)\]
 
@@ -209,3 +209,5 @@ The most attractive factor of this approach is that it can decouple the rotation
 \citeauthor{Hurtos2015} proposes a shorter pipeline than the Fourier-Mellin approach. Instead of estimating the rotation using the Log-Polar transform of the images in Fourier domain, it proposes using Phase Correlation over the raw sonar frames. Because of this, the pipeline will be referred to through the text as the "Raw Polar Pipeline". Since the input frames are already in a polar representation of sorts, given a short enough displacement between the two frames they claim it is possible to estimate the rotation angle directly.
 
 As can be seen in \autoref{fig:raw-polar-pipeline}, this pipeline is very simple. It calculates rotation on two masked raw sonar frames using Phase Correlation. Using the estimated rotation, it proceeds to apply the Fan Transformation over the inputs, masking them with a blurred fan-shaped mask, and warps the second frame using the estimated angle. Using phase correlation again, the translation can be estimated.
+
+The authors mention that instead of trying to filter out the noise, they would keep it throughout the pipeline and rely on global alignment to fix any errors. Since global alignment won't be part of the focus of the thesis, the implementation of this pipeline will include some filtering after the Fan Transformation, following recommendations from \citeauthor{5396234}\cite{5396234} and \citeauthor{Reddy1996}\cite{5396234}.
