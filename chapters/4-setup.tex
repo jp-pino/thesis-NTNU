@@ -1,6 +1,8 @@
 \chapter{Experimental Setup}
 \label{chap:setup}
 
+This chapter will explain the experimental setup and how the experiments are set up for performance comparison.
+
 To test the performance of the pipelines in an ideal setup and have a known reference to compare to, the experiments will be performed first using artificially generated data. Whenever generated sonar data is used, the frames come from the same source image that represents the seabed.
 
 \begin{figure}[H]
@@ -10,51 +12,54 @@ To test the performance of the pipelines in an ideal setup and have a known refe
   \label{fig:test_reference}
 \end{figure}
 
+For the sake of simplicity, one pixel in this image represents one meter. This will make evaluating the performance easier based on the measured translations.
 
 Tests using real data use recordings from this area in Trondheim:
 \begin{figure}[H]
   \centering
   \includegraphics[width=.7\textwidth]{figures/setup/Map.png}
   \caption{Trondheim Harbor testing site: 63.441457, 10.417528}
+  \label{fig:marina}
 \end{figure}
 
 
 To test rotation and translation, three sets of artificial data have been generated:
 
 \begin{enumerate}
-    \item Rotation: between each frame there's a rotation of 1º.
-    \item Translation: performing a horizontal translation of 10px at every step .
-    \item Rotation \& Translation: focusing on the rotation aspect as it's estimation may be affected on distant frames.
+    \item Rotation: between each frame, there's a rotation of 1º.
+    \item Translation (sway): performing a sideways translation of 10 px at every step, for a total displacement of 1000px.
+    \item Translation (surge): performing a forward translation of 10 px at every step, for a total displacement of 1000px.
 \end{enumerate}
 
 
-As it is interesting to see how the pipelines estimate rotations and translations on distant frames, the test will be repeated skipping 0, 1, 4, and 9 frames in between. This means that for rotations, we would expect to see 1º, 5º, and 10º estimated on the "fake" data, respectively. 
+As it is interesting to see how the pipelines estimate rotations and translations on distant frames, the test will be repeated skipping 0, 4, and 9 frames in between. This means that for rotations, an angular displacement of 1º, 5º, and 10º is expected on the estimation for each of the cases respectively. For translations, a horizontal displacement of 10 m, 50 m, and 100 m is expected.
 
 Finally, the pipelines will be tested on real data captured through the \acrshort{rov}. Using the \acrshort{rov}'s DVL data as "ground truth", we can evaluate the accuracy of the measurements. The specs of the sonar used for these tests are the following:
 
 
-\begin{table}
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
         \hline
         \textbf{Parameter} & \textbf{Spec} \\ \hline
-        Operating Frequency & 1.2MHz / 2.1MHz \\ \hline
-        Range (Maximum) & 40m / 10m \\ \hline
-        Range (Minimum) & 0.1m \\ \hline
-        Range Resolution & 2.5mm / 2.5mm \\ \hline
-        Update Rate (Max.) & 40Hz \\ \hline
+        Operating Frequency & 1.2 MHz / 2.1 MHz \\ \hline
+        Range (Maximum) & 40 m / 10 m \\ \hline
+        Range (Minimum) & 0.1 m \\ \hline
+        Range Resolution & 2.5 mm / 2.5 mm \\ \hline
+        Update Rate (Max.) & 40 Hz \\ \hline
         Horizontal Aperture & 130° / 60° \\ \hline
         Vertical Aperture & 20° / 12° \\ \hline
         Number of Beams (Max.) & 512 \\ \hline
         Angular Resolution & 0.6° / 0.4° \\ \hline
         Beam Separation & 0.25° / 0.16° \\ \hline
     \end{tabular}
-    \caption{\acrlong{bsosonar} Specs}
+    \caption{\acrlong{bsosonar} Specs \cite{BlueprintSubsea:Specs}.}
     \label{tab:sonar_specs}
 \end{table}
 
 The update rate was fixed through sonar settings to be 10Hz. The mentioned 40Hz can only be achieved on very small ranges. 
 
+As mentioned before, the Blueye Robotics's X3 \acrshort{rov} will be used in this project. The drone can freely move along its sway, surge, and heave axes. However, for tests movement along the heave axis will be restricted so that the restrictions mentioned in \autoref{chap:implementation} apply. Using the DVL, the \acrshort{rov} can keep its altitude constant from the bottom. In addition, these are some of the drone's main specs:
 
 \begin{table}[H]
     \centering
@@ -71,9 +76,9 @@ The update rate was fixed through sonar settings to be 10Hz. The mentioned 40Hz 
         Run time at normal use & 5 hours on High Capacity Battery \\ \hline
         Operating temperature & -10 to +50 °C \\ \hline
     \end{tabular}
-    \caption{Blueye X3 \acrshort{rov} Specs}
+    \caption{Blueye X3 \acrshort{rov} Specs \cite{Blueye:X3Specs}.}
     \label{tab:drone_specs}
 \end{table}
 
-All testing of the pipelines themselves was performed on a MacBook Pro with an M1 Pro processor and 16GB of RAM.
+All testing of software developed (the pipelines themselves) was performed on a MacBook Pro with an M1 Pro processor and 16GB of RAM.
 

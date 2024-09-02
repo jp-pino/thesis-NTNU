@@ -2,19 +2,32 @@
 \label{chap:conclusion}
 
 \section{Conclusion}
+In conclusion, the analysis performed in this thesis outlines the strengths and pitfalls of both the Raw Polar and Fourier-Mellin Pipelines in the context of sonar image registration. The former excels at accurately and promptly calculating rotations and small translations given the condition that translation on the sway axis is negligible. The Fourier-Mellin Pipeline excels at distant registrations, being robust against translations along sway and surge axes, as well as rotations. 
+
+The key takeaway from this is that the Raw Polar Pipeline is better suited for registering consecutive frames as it follows the movement of the drone, whereas the Fourier-Mellin approach is more robust against more distant translations and rotations. This might enable better global alignment in a combined pipeline: the Raw Polar Pipeline would take care of the main consecutive registration chain, and Fourier-Mellin would be used on neighboring frames that may be both spatially and chronologically distant. 
+
+It was shown in the results how resizing the input frames can drastically speed up the pipelines. However, this must be done carefully evaluating the trade-off in output resolution. If more detail is required, the frames can't be down-sampled as much. Using data from the \autoref{fig:resizing-speedup} a pipeline might be favored over the other considering timing constraints.
+
+Mosaicing was successful using the chosen approach, reducing visible noise and outputting images that are clearer and less grainy than the input frames. 
+
+All of this was possible because of the clever implementation of the Pipeline Framework, which enables quick experimentation through replaceable modules. Although the performance still leaves something to be desired, the ease of use and flexibility make it worth using in this experimentation phase.
+
 
 \section{Limitations}
 
+Some limitations of both the Raw Polar and Fourier-Mellin Pipelines are:
+
 \begin{itemize}
-    \item No changes in depth.
-    \item Scale not taken into account in either pipeline. Might be a measure of depth.
+    \item The \acrshort{rov} must remain at the same depth for the whole scan.
+    \item Scale is currently not taken into account in either pipeline. Might fix small oscillations along the heave axis. It might also be used as a measure of changes in depth.
+    \item All incoming frames must be of the same shape. Therefore, changes in range or frequency of the sonar are not allowed mid-scan. This is not necessarily a limitation of the theory behind the pipelines, but rather a limitation of the implementation.
 \end{itemize}
 
 
-\section{Future work}
+\section{Future Work}
 
-Using the Hurtos pipeline is good, however angle estimation is most likely wrong on real images because of the bearing table. This could be fixed by re-scaling the bearings axis so that all angles are evenly spaced. Additionally, it might be helpful to re-scale the range axis in the raw frames into log base so that scale might also be calculated through phase correlation. 
+\citeauthor{Hurtos2015}'s Raw Polar Pipeline proved to be very successful at registration, however, angle estimation is slightly wrong on real images because of uneven intervals in the bearing table. This could be fixed by re-scaling the bearings axis so that all angles are evenly spaced. Additionally, it might be helpful to re-scale the range axis in the raw frames into log base so that scale might also be calculated through phase correlation, in essence obtaining 
 
-Ray supports pipelining operations to increase throughput. Currently each module has to finish before processing of the second module begins. In most cases, except in the Phase Correlation and the Mosaicing modules, the pipelines tends to be independent for each image. Using Ray for pipelining across modules might save some useful cycles.
+Ray supports pipelining operations to increase throughput. Currently, each module has to finish before the processing of the second module begins. In most cases, except in the Phase Correlation and the Mosaicing modules, the pipelines tend to be independent for each image. Using Ray for pipelining across modules might save some useful cycles. 
 
-GPU acceleration of the pipelines.
+Another pipeline optimization could involve using the GPU for massive parallelization of problems. This could apply to the \acrshort{fft} and other operations. 
